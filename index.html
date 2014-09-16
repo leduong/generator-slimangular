@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Yeoman generator for AngularJS / Slim : yeoman, generator, AngularJS, Slim">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Yeoman generator for AngularJS / Slim</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/leduong/generator-slimangular">View on GitHub</a>
+
+          <h1 id="project_title">Yeoman generator for AngularJS / Slim</h1>
+          <h2 id="project_tagline">yeoman, generator, AngularJS, Slim</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/leduong/generator-slimangular/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/leduong/generator-slimangular/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="generator-slimangular-" class="anchor" href="#generator-slimangular-"><span class="octicon octicon-link"></span></a>generator-slimangular <a href="https://travis-ci.org/leduong/generator-slimangular"><img src="https://secure.travis-ci.org/leduong/generator-slimangular.png?branch=master" alt="Build Status"></a>
+</h1>
+
+<blockquote>
+<p><a href="http://yeoman.io">Yeoman</a> generator</p>
+</blockquote>
+
+<h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<h3>
+<a name="what-is-yeoman" class="anchor" href="#what-is-yeoman"><span class="octicon octicon-link"></span></a>What is Yeoman?</h3>
+
+<p>Trick question. It's not a thing. It's this guy:</p>
+
+<p><img src="http://i.imgur.com/JHaAlBJ.png" alt=""></p>
+
+<p>Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.</p>
+
+<p>Not every new computer comes with a Yeoman pre-installed. He lives in the <a href="https://npmjs.org">npm</a> package repository. You only have to ask for him once, then he packs up and moves into your hard drive. <em>Make sure you clean up, he likes new and shiny things.</em></p>
+
+<h1>
+<a name="the-angular-slim-generator" class="anchor" href="#the-angular-slim-generator"><span class="octicon octicon-link"></span></a>The Angular Slim generator</h1>
+
+<p>A <a href="http://yeoman.io">Yeoman</a> generator for <a href="http://angularjs.org">AngularJS</a> and <a href="http://www.slimframework.com/">Slim</a>.</p>
+
+<p>Slim is a PHP-based micro-framework.  For AngularJS integration with other micro-frameworks, see <a href="https://github.com/codeguy/Slim">https://github.com/codeguy/Slim</a> (<a href="https://github.com/codeguy/Slim">https://github.com/codeguy/Slim</a>).</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Install <a href="http://git-scm.com">Git</a>, <a href="http://nodejs.org">node.js</a>, and <a href="http://www.php.net/">PHP 5.4</a>.  The development mode also requires either <a href="http://www.sqlite.org">SQLite</a>, <a href="http://www.mysql.com/">MySQL</a>, or <a href="http://www.postgresql.org/">PostgreSQL</a>.</p>
+
+<p>Install Yeoman:</p>
+
+<pre><code>npm install -g yo
+</code></pre>
+
+<p>Install the Angular-Slim generator:</p>
+
+<pre><code>npm install https://github.com/leduong/generator-slimangular/archive/v1.0.tar.gz
+</code></pre>
+
+<p>The above prerequisites can be installed to a VM using the <a href="https://github.com/leduong/generator-slimangular">Angular Slim provisioner</a>.</p>
+
+<h2>
+<a name="creating-a-slim-service" class="anchor" href="#creating-a-slim-service"><span class="octicon octicon-link"></span></a>Creating a Slim service</h2>
+
+<p>In a new directory, generate the service:</p>
+
+<pre><code>mkdir new-app &amp;&amp; cd $_
+yo slimangular:app
+</code></pre>
+
+<p>Install <a href="https://getcomposer.org/">Composer</a>:</p>
+
+<pre><code>curl -s http://getcomposer.org/installer | php
+</code></pre>
+
+<p>Install dependencies manually if composer was not pre-installed:</p>
+
+<pre><code>php composer.phar update
+</code></pre>
+
+<p>Run the service:</p>
+
+<pre><code>php -S 127.0.0.1:8080 -t public
+</code></pre>
+
+<p>Your service will run at <a href="http://localhost:8080">http://localhost:8080</a>.</p>
+
+<h2>
+<a name="creating-a-persistent-model" class="anchor" href="#creating-a-persistent-model"><span class="octicon octicon-link"></span></a>Creating a persistent model</h2>
+
+<p>Generate the model (lowercase):</p>
+
+<pre><code>yo slimangular:model [mymodel]
+</code></pre>
+
+<p>You will be asked to specify attributes for the model, where each attribute has the following:</p>
+
+<ul>
+<li>a name (TitleCase "First Name", "Last Name", "Birthday"...)</li>
+<li>a type (String, Integer, Float, Boolean, Date, Enum)</li>
+<li>for a String attribute, an optional minimum and maximum length</li>
+<li>for a numeric attribute, an optional minimum and maximum value</li>
+<li>for a Date attribute, an optional constraint to either past values or future values</li>
+<li>for an Enum attribute, a list of enumerated values</li>
+<li>whether the attribute is required</li>
+</ul><p>Files that are regenerated will appear as conflicts.  Allow the generator to overwrite these files as long as no custom changes have been made.</p>
+
+<p>Install dependencies manually if composer was not pre-installed:</p>
+
+<pre><code>php composer.phar update
+</code></pre>
+
+<p>Run the service:</p>
+
+<pre><code>php -S 127.0.0.1:8080 -t public
+</code></pre>
+
+<p>A client-side AngularJS application will now be available by running</p>
+
+<pre><code>grunt
+</code></pre>
+
+<p>The Grunt server will run at <a href="http://localhost:9000">http://localhost:9000</a>.  It will proxy REST requests to the Slim service running at <a href="http://localhost:8080">http://localhost:8080</a>.</p>
+
+<p>At this point you should be able to navigate to a page to manage your persistent entities.</p>
+
+<p>The Grunt server supports hot reloading of client-side HTML/CSS/Javascript file changes.</p>
+
+<h3>
+<a name="getting-to-know-yeoman" class="anchor" href="#getting-to-know-yeoman"><span class="octicon octicon-link"></span></a>Getting To Know Yeoman</h3>
+
+<p>Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.</p>
+
+<p>If you'd like to get to know Yeoman better and meet some of his friends, <a href="http://gruntjs.com">Grunt</a> and <a href="http://bower.io">Bower</a>, check out the complete <a href="https://github.com/yeoman/yeoman/wiki/Getting-Started">Getting Started Guide</a>.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>MIT</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Yeoman generator for AngularJS / Slim maintained by <a href="https://github.com/leduong">leduong</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
