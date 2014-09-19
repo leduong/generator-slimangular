@@ -1,6 +1,6 @@
 {
   "name": "generator-slimangular",
-  "version": "0.1.1",
+  "version": "1.0",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -51,7 +51,7 @@
   "bugs": {
     "url": "https://github.com/leduong/generator-slimangular/issues"
   },
-  "_id": "generator-slimangular@0.1.1",
+  "_id": "generator-slimangular@1.0",
   "dist": {
     "shasum": "6d2815a6fa4d00c5c4e8a2f9d059418dea089b95"
   },
