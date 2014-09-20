@@ -46,8 +46,34 @@ SlimangularGenerator.prototype.askFor = function askFor() {
     type: 'list',
     name: 'attrType',
     message: 'What is the type of the attribute?',
-    choices: ['String', 'Integer', 'Float', 'Boolean', 'Date', 'Enum'],
+    choices: ['String', 'Text', 'Char', 'Integer', 'Float', 'Boolean', 'Date', 'Enum', 'Email', 'Password'],
     default: 'String'
+  }, {
+    when: function(props) {
+      return (/Char/).test(props.attrType);
+    },
+    type: 'input',
+    name: 'minLength',
+    message: 'Enter the minimum length for the Char attribute, or hit enter:',
+    validate: function(input) {
+      if (input && isNaN(input)) {
+        return "Please enter a number.";
+      }
+      return true;
+    }
+  }, {
+    when: function(props) {
+      return (/Char/).test(props.attrType);
+    },
+    type: 'input',
+    name: 'maxLength',
+    message: 'Enter the maximum length for the Char attribute, or hit enter:',
+    validate: function(input) {
+      if (input && isNaN(input)) {
+        return "Please enter a number.";
+      }
+      return true;
+    }
   }, {
     when: function(props) {
       return (/String/).test(props.attrType);
@@ -201,8 +227,8 @@ SlimangularGenerator.prototype.files = function files() {
   this.mkdir(publicEntityJsDir);
   this.mkdir(publicEntityViewDir);
   this.template('../../app/templates/public/_index.html', publicDir + 'index.html');
-  this.template('public/js/model/_model-controller.js', publicEntityJsDir + this.name + '-controller.js');
-  this.template('public/js/model/_model-router.js', publicEntityJsDir + this.name + '-router.js');
-  this.template('public/js/model/_model-service.js', publicEntityJsDir + this.name + '-service.js');
-  this.template('public/views/model/_models.html', publicEntityViewDir + pluralize(this.name) + '.html');
+  this.template('public/js/_model-controller.js', publicEntityJsDir + this.name + '-controller.js');
+  this.template('public/js/_model-router.js', publicEntityJsDir + this.name + '-router.js');
+  this.template('public/js/_model-service.js', publicEntityJsDir + this.name + '-service.js');
+  this.template('public/views/_models.html', publicEntityViewDir + pluralize(this.name) + '.html');
 };

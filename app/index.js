@@ -32,14 +32,6 @@ SlimangularGenerator.prototype.welcome = function welcome() {
   if (!this.options['skip-welcome-message']) {
     this.log(yosay());
   }
-
-  if (this.options.minsafe) {
-    this.log.error(
-      'The --minsafe flag has been removed. For more information, see' +
-      '\nhttps://github.com/leduong/generator-slimangular#minification-safe.' +
-      '\n'
-    );
-  }
 };
 
 SlimangularGenerator.prototype.askFor = function askFor() {
@@ -95,7 +87,7 @@ SlimangularGenerator.prototype.askFor = function askFor() {
     this.databaseType = props.databaseType == 'PostgreSQL' ? 'pgsql' : props.databaseType.toLowerCase();
     this.hostName = props.hostName;
     if (props.databaseType == 'SQLite' && props.databaseName.indexOf('/') != 0) {
-      this.databaseName = '/tmp/' + props.databaseName;
+      this.databaseName = props.databaseName + '.sqlite';
     } else {
       this.databaseName = props.databaseName;
     }
@@ -146,6 +138,7 @@ SlimangularGenerator.prototype.app = function app() {
   this.template('server/config/_phpmig.php', configDir + 'phpmig.php');
   this.template('server/config/_app.php', configDir + 'app.php');
   this.template('server/_app.php', serverDir + 'app.php');
+  this.template('server/_validator.php', serverDir + 'validator.php');
   this.template('public/_index.php', publicDir + 'index.php');
   this.copy('public/htaccess', publicDir + '.htaccess');
 

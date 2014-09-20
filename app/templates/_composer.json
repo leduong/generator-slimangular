@@ -6,13 +6,15 @@
         "slim/extras": "2.*",
         "illuminate/database": "*",
         "illuminate/validation": "*",
+        "illuminate/translation": "*",
         "davedevelopment/phpmig": "1.1.*@dev",
         "pimple/pimple": "1.*"
     },
     "autoload": {
         "classmap": [
             "server/models"
-        ]
+        ],
+        "files": ["server/validator.php"]
     },
     "config": {
         "bin-dir": "server/bin/"
