@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('<%= baseName %>')
-  .controller('<%= _.capitalize(name) %>Controller', ['$scope', '$modal', 'resolved<%= _.capitalize(name) %>', '<%= _.capitalize(name) %>',
+  .controller('<%= _.capitalize(name) %>Ctrl', ['$scope', '$modal', 'resolved<%= _.capitalize(name) %>', '<%= _.capitalize(name) %>',
     function ($scope, $modal, resolved<%= _.capitalize(name) %>, <%= _.capitalize(name) %>) {
 
       $scope.<%= pluralize(name) %> = resolved<%= _.capitalize(name) %>;
@@ -41,8 +41,7 @@ angular.module('<%= baseName %>')
 
       $scope.clear = function () {
         $scope.<%= name %> = {
-          <% _.each(attrs, function (attr) { %>
-          "<%= attr.attrName.replace(" ", "_").toLowerCase() %>": "",
+          <% _.each(attrs, function (attr) { %>"<%= attr.attrName.replace(" ", "_").toLowerCase() %>": "",
           <% }); %>
           "id": ""
         };
@@ -50,8 +49,8 @@ angular.module('<%= baseName %>')
 
       $scope.open = function (id) {
         var <%= name %>Save = $modal.open({
-          templateUrl: '<%= name %>-modal.html',
-          controller: <%= _.capitalize(name) %>SaveController,
+          templateUrl: 'views/<%= name %>/<%= name %>-modal.html',
+          controller: <%= _.capitalize(name) %>SaveCtrl,
           resolve: {
             <%= name %>: function () {
               return $scope.<%= name %>;
@@ -66,7 +65,7 @@ angular.module('<%= baseName %>')
       };
     }]);
 
-var <%= _.capitalize(name) %>SaveController =
+var <%= _.capitalize(name) %>SaveCtrl =
   function ($scope, $modalInstance, <%= name %>) {
     $scope.<%= name %> = <%= name %>;
 

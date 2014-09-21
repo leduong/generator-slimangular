@@ -102,6 +102,32 @@ SlimangularGenerator.prototype.askFor = function askFor() {
     }
   }, {
     when: function(props) {
+      return (/Text/).test(props.attrType);
+    },
+    type: 'input',
+    name: 'minLength',
+    message: 'Enter the minimum length for the Text attribute, or hit enter:',
+    validate: function(input) {
+      if (input && isNaN(input)) {
+        return "Please enter a number.";
+      }
+      return true;
+    }
+  }, {
+    when: function(props) {
+      return (/Text/).test(props.attrType);
+    },
+    type: 'input',
+    name: 'maxLength',
+    message: 'Enter the maximum length for the Text attribute, or hit enter:',
+    validate: function(input) {
+      if (input && isNaN(input)) {
+        return "Please enter a number.";
+      }
+      return true;
+    }
+  }, {
+    when: function(props) {
       return (/Integer|Float/).test(props.attrType);
     },
     type: 'input',
@@ -231,4 +257,5 @@ SlimangularGenerator.prototype.files = function files() {
   this.template('public/js/_model-router.js', publicEntityJsDir + this.name + '-router.js');
   this.template('public/js/_model-service.js', publicEntityJsDir + this.name + '-service.js');
   this.template('public/views/_models.html', publicEntityViewDir + pluralize(this.name) + '.html');
+  this.template('public/views/_model-modal.html', publicEntityViewDir + this.name + '-modal.html');
 };

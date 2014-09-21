@@ -32,7 +32,7 @@ Install Yeoman:
 
 Install the Angular-Slim generator:
 
-    npm install -g https://github.com/leduong/generator-slimangular/archive/0.1.2.tar.gz
+    npm install -g https://github.com/leduong/generator-slimangular/archive/0.1.3.tar.gz
 
 The above prerequisites can be installed to a VM using the [Angular Slim provisioner](https://github.com/leduong/generator-slimangular).
 

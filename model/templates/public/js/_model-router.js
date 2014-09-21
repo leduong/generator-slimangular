@@ -5,7 +5,7 @@ angular.module('<%= baseName %>')
     $routeProvider
       .when('/<%= pluralize(name) %>', {
         templateUrl: 'views/<%= name %>/<%= pluralize(name) %>.html',
-        controller: '<%= _.capitalize(name) %>Controller',
+        controller: '<%= _.capitalize(name) %>Ctrl',
         resolve:{
           resolved<%= _.capitalize(name) %>: ['<%= _.capitalize(name) %>', function (<%= _.capitalize(name) %>) {
             return <%= _.capitalize(name) %>.query();
