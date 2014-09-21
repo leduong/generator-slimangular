@@ -67,7 +67,7 @@ Generate the model (lowercase):
 You will be asked to specify attributes for the model, where each attribute has the following:
 
 - a name (TitleCase "First Name", "Last Name", "Birthday"...)
-- a type (String, Integer, Float, Boolean, Date, Enum)
+- a type (String, Char, Text, Integer, Float, Boolean, Date, Enum, Email, Password)
 - for a String attribute, an optional minimum and maximum length
 - for a numeric attribute, an optional minimum and maximum value
 - for a Date attribute, an optional constraint to either past values or future values
@@ -80,13 +80,18 @@ Install dependencies manually if composer was not pre-installed:
 
     php composer.phar update
 
+Run migration DB:
+
+    $ cd server
+    $ ./bin/phpmig migrate
+
 Run the service:
 
-    php -S 127.0.0.1:8080 -t public
+    $ php -S 127.0.0.1:8080 -t public
 
 A client-side AngularJS application will now be available by running
 
-    grunt
+    $ grunt
 
 The Grunt server will run at [http://localhost:9000](http://localhost:9000).  It will proxy REST requests to the Slim service running at [http://localhost:8080](http://localhost:8080).
 
