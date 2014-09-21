@@ -4,10 +4,7 @@
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/leduong/generator-slimangular"
-  },
+  "repository": "leduong/generator-slimangular",
   "author": {
     "name": "Le Duong",
     "email": "me@leduong.com",
@@ -32,29 +29,19 @@
     "Bootstrap"
   ],
   "dependencies": {
-    "yeoman-generator": "~0.14.0",
-    "URIjs": "~1.11.2",
+    "yeoman-generator": "^0.17.0",
+    "yosay": "^0.3.0",
+    "chalk": "^0.5.0",
     "lodash": "~2.4.1",
     "underscore.string": "~2.3.3",
     "pluralize": "~0.0.6",
     "asciify": "~1.3.3",
-    "yosay": "^0.2.0"
+    "URIjs": "~1.11.2"
   },
   "devDependencies": {
     "mocha": "*"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
-  },
-  "readme": "# generator-slimangular [![Build Status](https://secure.travis-ci.org/leduong/generator-slimangular.png?branch=master)](https://travis-ci.org/leduong/generator-slimangular)\n\n> [Yeoman](http://yeoman.io) generator\n\n\n## Getting Started\n\n### What is Yeoman?\n\nTrick question. It's not a thing. It's this guy:\n\n![](http://i.imgur.com/JHaAlBJ.png)\n\nBasically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.\n\nNot every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*\n\n\n# The Angular Slim generator\n\nA [Yeoman](http://yeoman.io) generator for [AngularJS](http://angularjs.org) and [Slim](http://www.slimframework.com/).\n\nSlim is a PHP-based micro-framework.  For AngularJS integration with other micro-frameworks, see https://github.com/codeguy/Slim (https://github.com/codeguy/Slim).\n\n## Installation\n\nInstall [Git](http://git-scm.com), [node.js](http://nodejs.org), and [PHP 5.4](http://www.php.net/).  The development mode also requires either [SQLite](http://www.sqlite.org), [MySQL](http://www.mysql.com/), or [PostgreSQL](http://www.postgresql.org/).\n\nInstall Yeoman:\n\n    npm install -g yo\n\nInstall the Angular-Slim generator:\n\n    npm install -g https://github.com/leduong/generator-slimangular.git\n\nThe above prerequisites can be installed to a VM using the [Angular Slim provisioner](https://github.com/leduong/generator-slimangular).\n\n## Creating a Slim service\n\nIn a new directory, generate the service:\n\n    mkdir new-app && cd $_\n    yo slimangular:app\n\nInstall [Composer](https://getcomposer.org/):\n\n    curl -s http://getcomposer.org/installer | php\n\nInstall dependencies manually if composer was not pre-installed:\n\n    php composer.phar update\n\nRun the service:\n\n    php -S 127.0.0.1:8080 -t public\n\nYour service will run at [http://localhost:8080](http://localhost:8080).\n\n\n## Creating a persistent model\n\nGenerate the model (lowercase):\n\n    yo slimangular:model [mymodel]\n\nYou will be asked to specify attributes for the model, where each attribute has the following:\n\n- a name (TitleCase \"First Name\", \"Last Name\", \"Birthday\"...)\n- a type (String, Integer, Float, Boolean, Date, Enum)\n- for a String attribute, an optional minimum and maximum length\n- for a numeric attribute, an optional minimum and maximum value\n- for a Date attribute, an optional constraint to either past values or future values\n- for an Enum attribute, a list of enumerated values\n- whether the attribute is required\n\nFiles that are regenerated will appear as conflicts.  Allow the generator to overwrite these files as long as no custom changes have been made.\n\nInstall dependencies manually if composer was not pre-installed:\n\n    php composer.phar update\n\nRun the service:\n\n    php -S 127.0.0.1:8080 -t public\n\nA client-side AngularJS application will now be available by running\n\n    grunt\n\nThe Grunt server will run at [http://localhost:9000](http://localhost:9000).  It will proxy REST requests to the Slim service running at [http://localhost:8080](http://localhost:8080).\n\nAt this point you should be able to navigate to a page to manage your persistent entities.\n\nThe Grunt server supports hot reloading of client-side HTML/CSS/Javascript file changes.\n### Getting To Know Yeoman\n\nYeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.\n\nIf you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).\n\n\n## License\n\nMIT\n",
-  "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/leduong/generator-slimangular/issues"
-  },
-  "_id": "generator-slimangular@0.1.2",
-  "dist": {
-    "shasum": "6d2815a6fa4d00c5c4e8a2f9d059418dea089b95"
-  },
-  "_from": "https://github.com/leduong/generator-slimangular/archive/0.1.2.tar.gz",
-  "_resolved": "https://github.com/leduong/generator-slimangular/archive/0.1.2tar.gz"
+  }
 }
