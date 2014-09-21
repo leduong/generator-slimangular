@@ -1,6 +1,6 @@
 {
   "name": "generator-slimangular",
-  "version": "1.0",
+  "version": "0.1.2",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -21,8 +21,7 @@
   },
   "files": [
     "app",
-    "model",
-    "auth"
+    "model"
   ],
   "keywords": [
     "yeoman-generator",
@@ -52,10 +51,10 @@
   "bugs": {
     "url": "https://github.com/leduong/generator-slimangular/issues"
   },
-  "_id": "generator-slimangular@1.0",
+  "_id": "generator-slimangular@0.1.2",
   "dist": {
     "shasum": "6d2815a6fa4d00c5c4e8a2f9d059418dea089b95"
   },
-  "_from": "https://github.com/leduong/generator-slimangular/archive/v1.0.tar.gz",
-  "_resolved": "https://github.com/leduong/generator-slimangular/archive/v1.0.tar.gz"
+  "_from": "https://github.com/leduong/generator-slimangular/archive/0.1.2.tar.gz",
+  "_resolved": "https://github.com/leduong/generator-slimangular/archive/0.1.2tar.gz"
 }
