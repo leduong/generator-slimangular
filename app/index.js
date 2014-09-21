@@ -1,18 +1,20 @@
 'use strict';
 var util = require('util'),
-    path = require('path'),
-    yeoman = require('yeoman-generator'),
-    yosay = require('yosay'),
-    _ = require('lodash'),
-    _s = require('underscore.string'),
-    pluralize = require('pluralize'),
-    asciify = require('asciify');
+  path = require('path'),
+  yeoman = require('yeoman-generator'),
+  yosay = require('yosay'),
+  _ = require('lodash'),
+  _s = require('underscore.string'),
+  pluralize = require('pluralize'),
+  asciify = require('asciify');
 
 var SlimangularGenerator = module.exports = function SlimangularGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
-  this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
+  this.on('end', function() {
+    this.installDependencies({
+      skipInstall: options['skip-install']
+    });
 
     if (this.generatorConfig.databaseType === 'sqlite') {
       this.spawnCommand('sqlite3', ['-line', this.generatorConfig.databaseName, 'select 1']);
@@ -43,51 +45,45 @@ SlimangularGenerator.prototype.askFor = function askFor() {
     name: 'baseName',
     message: 'What is the name of your application?',
     default: 'myApp'
-  },
-  {
+  }, {
     type: 'list',
     name: 'databaseType',
     message: 'Which database would you like to use?',
     choices: ['MySQL', 'SQLite', 'PostgreSQL'],
     default: 'MySQL'
-  },
-  {
+  }, {
     type: 'input',
     name: 'hostName',
     message: 'What is your host name?',
     default: 'localhost'
-  },
-  {
+  }, {
     type: 'input',
     name: 'databaseName',
     message: 'What is your database name?',
     default: 'example'
-  },
-  {
+  }, {
     type: 'input',
     name: 'userName',
     message: 'What is your database user name?',
     default: 'username'
-  },
-  {
+  }, {
     type: 'input',
     name: 'password',
     message: 'What is your database password?',
     default: 'password'
-  },
-  {
+  }, {
     type: 'confirm',
     name: 'composer',
     message: 'Is PHP composer installed globally (so that "composer update" can be run automatically)?',
     default: false
   }];
 
-  this.prompt(prompts, function (props) {
+  this.prompt(prompts, function(props) {
     this.baseName = props.baseName;
     this.databaseType = props.databaseType == 'PostgreSQL' ? 'pgsql' : props.databaseType.toLowerCase();
     this.hostName = props.hostName;
     if (props.databaseType == 'SQLite' && props.databaseName.indexOf('/') != 0) {
-      this.databaseName = props.databaseName + '.sqlite';
+      this.databaseName = '/tmp/' + props.databaseName + '.sqlite';
     } else {
       this.databaseName = props.databaseName;
     }

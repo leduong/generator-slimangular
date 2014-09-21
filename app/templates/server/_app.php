@@ -62,7 +62,7 @@ $app->post('/<%= baseName %>/<%= pluralize(entity.name) %>', function() use($app
         $app->response->status(201);
         echo $<%= entity.name %>->toJson();
     }
-    echo json_encode(array("code" =>400, "message" => $errors));
+    else echo json_encode(array("code" =>400, "message" => $errors));
 });
 
 $app->put('/<%= baseName %>/<%= pluralize(entity.name) %>/:id', function($id) use($app) {
@@ -106,7 +106,7 @@ $app->put('/<%= baseName %>/<%= pluralize(entity.name) %>/:id', function($id) us
         $app->response->status(201);
         echo $<%= entity.name %>->toJson();
     }
-    echo json_encode(array("code" =>400, "message" => $errors));
+    else echo json_encode(array("code" =>400, "message" => $errors));
 });
 
 $app->delete('/<%= baseName %>/<%= pluralize(entity.name) %>/:id', function($id) use($app) {
